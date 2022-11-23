@@ -14,11 +14,11 @@ const stripePromise = loadStripe('pk_test_51M6WQFHDJfawfvtt90dPljTUGcvYeeqlwmr3e
 
 const Payment = () => {
     const booking = useLoaderData();
-    const navigation = useNavigation();
+    // const navigation = useNavigation();
     const { treatment, price, appointment, slot } = booking;
-    if(navigation.state=== "loading"){
-        return <Loading></Loading>
-    }
+    // if(navigation.state=== "loading"){
+    //     return <Loading></Loading>
+    // }
     return (
         <div>
             <h3 className='text-3xl'>payment for {treatment}</h3>
