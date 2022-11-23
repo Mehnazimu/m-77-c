@@ -1,7 +1,9 @@
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
+import Loading from '../../Shared/Loading/Loading';
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+
+import { useLoaderData, useNavigation } from 'react-router-dom';
 import CheckOutForm from './CheckOutForm';
 
 // REACT_APP_STRIPE_PK=pk_test_51M6WQFHDJfawfvtt90dPljTUGcvYeeqlwmr3eEkMS4I5I7vdfXxRx5qCQ7ITYhG0Q3ZM99mbtkdXM5Qgbz81J3Mq00bZzEuKXU
@@ -12,7 +14,11 @@ const stripePromise = loadStripe('pk_test_51M6WQFHDJfawfvtt90dPljTUGcvYeeqlwmr3e
 
 const Payment = () => {
     const booking = useLoaderData();
+    const navigation = useNavigation();
     const { treatment, price, appointment, slot } = booking;
+    if(navigation.state=== "loading"){
+        return <Loading></Loading>
+    }
     return (
         <div>
             <h3 className='text-3xl'>payment for {treatment}</h3>

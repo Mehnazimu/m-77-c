@@ -6,7 +6,7 @@ import { AuthContext } from '../../../context/AuthProvider';
 const MyAppointments = () => {
   const { user } = useContext(AuthContext);
 
-  const url = `http://localhost:5000/bookings?email=${user?.email}`;
+  const url = `https://m-77-server.vercel.app/bookings?email=${user?.email}`;
 
   const { data: bookings = [] } = useQuery({
     queryKey: ['bookings', user?.email],
@@ -55,7 +55,7 @@ const MyAppointments = () => {
                     </Link>
                   }
                   {
-                    booking.price && booking.paid && <span className='text-primary'>Paid</span>
+                    booking.price && booking.paid && <span className='text-green-500'>Paid</span>
                   }
                 </td>
               </tr>)
